@@ -1,4 +1,14 @@
 .comp-form {
+  .error-message {
+    font-weight: bold;
+    color: red;
+  }
+
+  .success-message {
+    font-weight: bold;
+    color: green;
+  }
+
   input {
     margin-bottom: 0px;
 

@@ -72,7 +72,7 @@ class MainMenu extends React.Component {
                     <FormTwo
                         className="test-form-class"
                         submitForm={this.submitForm.bind(this)}
-                        submitStatus='loaded'>
+                        genericFormError="There was a problem submitting the form, please try again">
                         <FormSelect
                             name="menuSelect"
                             wrapperClass=""

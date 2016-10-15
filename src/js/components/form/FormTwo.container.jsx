@@ -1,3 +1,7 @@
+/**
+ * Form validation following this implementation:
+ * http://christianalfoni.github.io/javascript/2014/10/22/nailing-that-validation-with-reactjs.html
+ */
 import React from 'react';
 import { connect } from 'react-redux';
 import FormButton from './FormButton.jsx';
@@ -117,6 +121,19 @@ class FormTwo extends React.Component {
             'comp-form': true
         });
 
+        //handle error message
+        const genericErrorClass = classNames({
+            'error-message': true,
+            'hide': !this.props.form.error
+        })
+        const genericFormError = this.props.genericFormError ? <span className={genericErrorClass}>{this.props.genericFormError}</span> : ''
+
+        //handle success message
+        const successMessageClass = classNames({
+            'success-message': true,
+            'hide': !this.props.form.fetched || this.props.form.fetched && this.props.form.error
+        })
+
         const fetched = this.props.form.fetched ? 'fetched!' : 'not fetched'
         const fetching = this.props.form.fetching ? 'fetching...': 'not fetching'
 
@@ -125,6 +142,9 @@ class FormTwo extends React.Component {
                 {this.clonedChildren}
                 <FormButton type="submit" value="Submit!" disabled={this.state.isFormInvalid}/>
                 <br />
+                {genericFormError}<br />
+                <span className={successMessageClass}>Thanks! Your form was submitted!</span><br />
+                Response: {this.props.form.response} <br />
                 Form fetched: {fetched}<br />
                 Form fetching: {fetching}
             </form>

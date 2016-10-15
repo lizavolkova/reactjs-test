@@ -1,3 +1,9 @@
+.comp-form .error-message {
+  font-weight: bold;
+  color: red; }
+.comp-form .success-message {
+  font-weight: bold;
+  color: green; }
 .comp-form input {
   margin-bottom: 0px; }
   .comp-form input.error {
